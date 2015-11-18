@@ -6,22 +6,9 @@
 //  Copyright © 2015 KaL. All rights reserved.
 //
 
-//{
-//    author = "Erica Sadun";
-//    categories = ios;
-//    id = 5;
-//    lastCheckedOut = "<null>";
-//    lastCheckedOutBy = "<null>";
-//    publisher = "<null>";
-//    title = "The Core iOS 6 Developer's Cookbook";
-//    url = "/books/5/";
-//},
-
-
 import Foundation
 
 class Book {
-    
     var author: String?
     var bookTitle: String?
     var catogories: String?
@@ -31,4 +18,16 @@ class Book {
     var publisher: String?
     var title: String?
     var url: String?
+    
+    init(author: String?, bookTitle: String?, catogories: String?, id: Int?, lastCheckedOut: NSDate?, lastCheckedOutBy: NSDate?, publisher: String?, title: String?, url: String?) {
+        self.author = author
+        self.bookTitle = bookTitle
+        self.catogories = catogories
+        self.id = id
+        self.lastCheckedOut = lastCheckedOut
+        self.lastCheckedOutBy = lastCheckedOutBy
+        self.publisher = publisher
+        self.title = title
+        self.url = url
+    }
 }
