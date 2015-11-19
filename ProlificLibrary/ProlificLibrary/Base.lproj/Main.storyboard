@@ -39,6 +39,9 @@
                                 <rect key="frame" x="20" y="392" width="280" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitButtonAction:" destination="cco-Og-wyw" eventType="touchUpInside" id="UyU-JI-Jul"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Publisher" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVi-Nr-7aH">
                                 <rect key="frame" x="20" y="202" width="280" height="30"/>
@@ -53,12 +56,17 @@
                     <navigationItem key="navigationItem" title="Add Book" id="tmB-Fh-Utm">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="h7O-78-jsZ">
                             <connections>
-                                <action selector="DoneButtonAction:" destination="cco-Og-wyw" id="Htg-GZ-AR8"/>
+                                <action selector="doneButtonAction:" destination="cco-Og-wyw" id="k5a-ON-hix"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="DoneButton" destination="h7O-78-jsZ" id="bXc-up-pRH"/>
+                        <outlet property="authorTextField" destination="YB6-J7-QFy" id="wP8-qS-p1s"/>
+                        <outlet property="bookTitleTextField" destination="Do8-hq-jq1" id="MAn-sc-tZj"/>
+                        <outlet property="categoriesTextField" destination="djh-tb-w4h" id="Xvg-cA-RKs"/>
+                        <outlet property="doneButton" destination="h7O-78-jsZ" id="iqG-he-NT9"/>
+                        <outlet property="publisherTextField" destination="AVi-Nr-7aH" id="pej-Al-yLM"/>
+                        <outlet property="submitButton" destination="SFu-Cn-Ac1" id="Gnh-pF-1mS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="seQ-6N-kcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -103,7 +111,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <segue destination="4k5-BT-mBI" kind="push" id="Bpc-Tm-lkO"/>
+                                    <segue destination="4k5-BT-mBI" kind="push" identifier="showBookDetail" id="Bpc-Tm-lkO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -127,7 +135,7 @@
         <!--Detail-->
         <scene sceneID="MUc-pw-IPs">
             <objects>
-                <viewController id="4k5-BT-mBI" sceneMemberID="viewController">
+                <viewController id="4k5-BT-mBI" customClass="DetailedBookVC" customModule="ProlificLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="27D-FC-dNd"/>
                         <viewControllerLayoutGuide type="bottom" id="lLZ-Kb-SaF"/>
@@ -136,11 +144,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Titlelabel" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7i-d4-Msv">
+                                <rect key="frame" x="20" y="72" width="280" height="58"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AuthorLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEZ-hT-ZpP">
+                                <rect key="frame" x="20" y="115" width="280" height="45"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PublisherLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uti-zO-c3A">
+                                <rect key="frame" x="20" y="144" width="280" height="44"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPN-vI-zNy">
-                                <rect key="frame" x="20" y="356" width="280" height="30"/>
+                                <rect key="frame" x="20" y="269" width="280" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Checkout"/>
+                                <connections>
+                                    <action selector="checkoutButtonAction:" destination="4k5-BT-mBI" eventType="touchUpInside" id="AMi-rG-26K"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CategoriesLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZn-af-xRb">
+                                <rect key="frame" x="20" y="181" width="280" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CheckoutLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yQ-52-ni4">
+                                <rect key="frame" x="20" y="196" width="280" height="44"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -148,6 +194,14 @@
                     <navigationItem key="navigationItem" title="Detail" id="sd6-dP-VR8">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="yXm-bS-5A1"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="authorLabel" destination="FEZ-hT-ZpP" id="yv3-Ti-c1p"/>
+                        <outlet property="categoriesLabel" destination="LZn-af-xRb" id="5lJ-JB-Vun"/>
+                        <outlet property="checkoutButton" destination="iPN-vI-zNy" id="Sps-gH-syB"/>
+                        <outlet property="checkoutLabel" destination="1yQ-52-ni4" id="o6v-IY-AaV"/>
+                        <outlet property="publisherLabel" destination="Uti-zO-c3A" id="2Bl-nS-pmJ"/>
+                        <outlet property="titleLabel" destination="k7i-d4-Msv" id="7kt-kK-yae"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AwS-8g-502" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

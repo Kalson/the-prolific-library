@@ -40,7 +40,6 @@ class Books {
         
         Alamofire.request(.GET, endpoint)
             .responseJSON { response in
-        
             if let _ = response.result.value {
                 let json = JSON(data: response.data!)
                 
@@ -48,8 +47,9 @@ class Books {
                 var books = [Book]()
                 
                 for (_, value) in json {
-                    books.append(Book(author: value["author"].string, bookTitle: value["bookTitle"].string, catogories: value["catogories"].string, id: value["id"].int!, lastCheckedOut: self.createDateFromString(value["lastCheckedOut"].string), lastCheckedOutBy: self.createDateFromString(value["lastCheckedOutBy"].string), publisher: value["publisher"].string, title: value["title"].string!, url: value["url"].string))
-//                    print(books)
+                    books.append(Book(author: value["author"].string, categories: value["categories"].string, id: value["id"].int!, lastCheckedOut: self.createDateFromString(value["lastCheckedOut"].string), lastCheckedOutBy: value["lastCheckedOutBy"].string, publisher: value["publisher"].string, title: value["title"].string, url: value["url"].string))
+                    
+                    print(response.response?.statusCode)
 
                 }
                 
@@ -59,7 +59,35 @@ class Books {
         }
         
     }
- 
+    
+//    author="Ash Maurya"
+//    categories="process"
+//    title="Running Lean"
+//    publisher="O'REILLY"
+    
+    static func post(book: Book) {
+        let parameters = [
+            "author": book.author!,
+            "categories": book.categories!,
+            "title": book.title!,
+            "publisher": book.publisher!
+        ]
+        
+        Alamofire.request(.POST, endpoint, parameters: parameters, encoding: .JSON)
+    }
+    
+    static func delete(book: Book) {
+        
+        Alamofire.request(.DELETE, "\(endpoint)\(book.id!)").responseJSON { response in
+            if let error = response.result.error {
+                // got an error while deleting, need to handle it
+                print("error trying to DELETE on /posts/\(book.id!)")
+                print(error)
+                }
+            
+        }
+        print("book being deleted = \(endpoint)\(book.id!)")
+    }
 }
 
 

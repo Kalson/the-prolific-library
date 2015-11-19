@@ -24,9 +24,13 @@ class TableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        
         Books.get { (books: [Book]) -> Void in
             self.books = books
             self.tableView.reloadData()
+            
+            print("Books items:\(books) at a total of \(books.count)")
+            
         }
         
     }
@@ -55,32 +59,54 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = "\(self.books[indexPath.row].title!)"
-        cell.detailTextLabel?.text = "\(self.books[indexPath.row].author!)"
+        if let title = books[indexPath.row].title {
+            cell.textLabel?.text = title
+        } else {
+            cell.textLabel?.text = "Untitled"
+
+        }
+        
+        if let author = books[indexPath.row].author {
+            cell.detailTextLabel?.text = author
+        } else {
+            cell.textLabel?.text = "No author"
+
+        }
 
         return cell
     }
     
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showBookDetail" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let destinationController = segue.destinationViewController as! DetailedBookVC
+                destinationController.titleText = self.books[indexPath.row].title
+                destinationController.authorText = self.books[indexPath.row].author
+                destinationController.publisherText = self.books[indexPath.row].publisher
+                destinationController.categoriesText = self.books[indexPath.row].categories
+                
+                print("Last checkout by = \(self.books[indexPath.row].lastCheckedOutBy)")
+            }
+            
+        }
     }
-    */
-
-    /*
+  
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
+            
+            // delete Book
+            Books.delete(books[indexPath.row])
+            books.removeAtIndex(indexPath.row)
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.reloadData()
+           
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+
 
     /*
     // Override to support rearranging the table view.

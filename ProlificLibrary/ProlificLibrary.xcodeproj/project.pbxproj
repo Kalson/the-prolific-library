@@ -125,7 +125,6 @@
 		264F9E9A1BF9857500D7423A /* ProlificLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				264F9E9B1BF9857500D7423A /* AppDelegate.swift */,
 				264F9EC91BF989E100D7423A /* TableViewController.swift */,
 				264F9ECD1BF98E5700D7423A /* AddBooksVC.swift */,
 				264F9ECF1BF98E8100D7423A /* DetailedBookVC.swift */,
@@ -154,6 +153,7 @@
 		264F9ECB1BF989F800D7423A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				264F9E9B1BF9857500D7423A /* AppDelegate.swift */,
 				264F9EA21BF9857500D7423A /* Assets.xcassets */,
 				264F9EA41BF9857500D7423A /* LaunchScreen.storyboard */,
 				264F9EA71BF9857500D7423A /* Info.plist */,

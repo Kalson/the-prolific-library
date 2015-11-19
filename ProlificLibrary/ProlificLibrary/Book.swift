@@ -10,19 +10,17 @@ import Foundation
 
 class Book {
     var author: String?
-    var bookTitle: String?
-    var catogories: String?
+    var categories: String?
     var id: Int?
     var lastCheckedOut: NSDate?
-    var lastCheckedOutBy: NSDate?
+    var lastCheckedOutBy: String?
     var publisher: String?
     var title: String?
     var url: String?
     
-    init(author: String?, bookTitle: String?, catogories: String?, id: Int?, lastCheckedOut: NSDate?, lastCheckedOutBy: NSDate?, publisher: String?, title: String?, url: String?) {
+    init(author: String?, categories: String?, id: Int?, lastCheckedOut: NSDate?, lastCheckedOutBy: String?, publisher: String?, title: String?, url: String?) {
         self.author = author
-        self.bookTitle = bookTitle
-        self.catogories = catogories
+        self.categories = categories
         self.id = id
         self.lastCheckedOut = lastCheckedOut
         self.lastCheckedOutBy = lastCheckedOutBy
