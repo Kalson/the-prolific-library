@@ -121,12 +121,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Books" id="sfl-w0-Rpo">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="wM9-1E-B2g">
+                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="rKy-ta-1TJ">
+                            <connections>
+                                <action selector="trashButtonAction:" destination="trP-Iq-Y6R" id="TMN-SX-E9O"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wM9-1E-B2g">
                             <connections>
                                 <segue destination="FX9-DO-ACk" kind="modal" id="kWl-An-Um0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="trashButton" destination="rKy-ta-1TJ" id="GHj-8e-sWF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CAW-VK-U44" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

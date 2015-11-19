@@ -38,8 +38,7 @@ class Books {
     //}
     static func get(callback: ([Book]) -> Void) {
         
-        Alamofire.request(.GET, endpoint)
-            .responseJSON { response in
+        Alamofire.request(.GET, endpoint).responseJSON { response in
             if let _ = response.result.value {
                 let json = JSON(data: response.data!)
                 
@@ -48,9 +47,6 @@ class Books {
                 
                 for (_, value) in json {
                     books.append(Book(author: value["author"].string, categories: value["categories"].string, id: value["id"].int!, lastCheckedOut: self.createDateFromString(value["lastCheckedOut"].string), lastCheckedOutBy: value["lastCheckedOutBy"].string, publisher: value["publisher"].string, title: value["title"].string, url: value["url"].string))
-                    
-                    print(response.response?.statusCode)
-
                 }
                 
                 callback(books)
@@ -87,6 +83,19 @@ class Books {
             
         }
         print("book being deleted = \(endpoint)\(book.id!)")
+    }
+    
+    static func deleteAll(books: [Book]) {
+        
+        Alamofire.request(.DELETE, "http://prolific-interview.herokuapp.com/5646360614807f000978562a/clean").responseJSON { response in
+            if let error = response.result.error {
+                // got an error while deleting, need to handle it
+                print("error trying to DELETE on all /posts/\(books)")
+                print(error)
+            }
+            
+        }
+        print("books being deleted = \(endpoint)")
     }
 }
 
