@@ -11,18 +11,33 @@ import UIKit
 class TableViewController: UITableViewController {
     
     var books = [Book]()
+    var refreshData = UIRefreshControl()
     
     @IBOutlet weak var trashButton: UIBarButtonItem!
     @IBAction func trashButtonAction(sender: AnyObject) {
         let alertController = UIAlertController(title: "Delete All?", message: "Are you sure you want to delete all books?", preferredStyle: .Alert)
         let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { (action: UIAlertAction) -> Void in
             Books.deleteAll(self.books)
-//            self.books.removeAll()
+            
+//            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+//                self.tableView.reloadData()
+//
+//            }
+            
+        
+            print("DELETE")
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         alertController.addAction(cancelAction)
         alertController.addAction(deleteAction)
         self.presentViewController(alertController, animated: true, completion: nil)
+
+        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self presentViewController:AlertView animated:YES completion:nil];
+//            });
+        
+        
         
     }
     
@@ -30,18 +45,30 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // create refresh
+        self.refreshData.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshData.addTarget(self, action: Selector("refresh"), forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(self.refreshData)
+        
     }
     
-    override func viewWillAppear(animated: Bool) {
-        
+    func refresh(){
         Books.get { (books: [Book]) -> Void in
             self.books = books
             self.tableView.reloadData()
             
             print("Books items:\(books) at a total of \(books.count)")
-            
         }
         
+        if self.refreshData.refreshing {
+            self.refreshData.endRefreshing()
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        print("VIEWWILLAPPEAR")
+        refresh()
     }
     
 
