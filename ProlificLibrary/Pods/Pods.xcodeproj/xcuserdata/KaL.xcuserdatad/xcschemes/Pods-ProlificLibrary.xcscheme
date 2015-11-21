@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '708570919DD226CF7E20E779'
+               BlueprintIdentifier = '39204963CF762F8761AB6037'
                BlueprintName = 'Pods-ProlificLibrary'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_ProlificLibrary.framework'>

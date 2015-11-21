@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SAMGradientView
 
 class TableViewController: UITableViewController {
     
@@ -17,43 +18,43 @@ class TableViewController: UITableViewController {
     @IBAction func trashButtonAction(sender: AnyObject) {
         let alertController = UIAlertController(title: "Delete All?", message: "Are you sure you want to delete all books?", preferredStyle: .Alert)
         let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) { (action: UIAlertAction) -> Void in
-            Books.deleteAll(self.books)
             
-//            dispatch_async(dispatch_get_main_queue()) { () -> Void in
-//                self.tableView.reloadData()
-//
-//            }
-            
-        
-            print("DELETE")
+            Books.deleteAll(self.books) { (response) in
+                self.refresh()
+            }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         alertController.addAction(cancelAction)
         alertController.addAction(deleteAction)
+        
+        alertController.view.backgroundColor = UIColor.clearColor()
         self.presentViewController(alertController, animated: true, completion: nil)
-
-        
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self presentViewController:AlertView animated:YES completion:nil];
-//            });
-        
-        
-        
     }
     
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.clearColor()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // create gradient View
+        let gradientView = SAMGradientView()
+        gradientView.gradientColors = [UIColor(red: 0.1608, green: 0.6235, blue: 0.7804, alpha: 1.0), UIColor(red: 0.1059, green: 0.7804, blue: 0.6, alpha: 1.0)]
+        self.tableView.backgroundView = gradientView
+    
+        self.tableView.separatorColor = UIColor.clearColor()
+
         // create refresh
         self.refreshData.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshData.addTarget(self, action: Selector("refresh"), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(self.refreshData)
         
+        
     }
     
     func refresh(){
-        Books.get { (books: [Book]) -> Void in
+        Books.get { (books) -> Void in
             self.books = books
             self.tableView.reloadData()
             
@@ -93,6 +94,8 @@ class TableViewController: UITableViewController {
         
         let cellIdentifier = "Cell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        cell.textLabel?.textColor = UIColor.whiteColor()
+        cell.detailTextLabel?.textColor = UIColor.whiteColor()
 
         // Configure the cell...
         if let title = books[indexPath.row].title {
@@ -116,10 +119,19 @@ class TableViewController: UITableViewController {
         if segue.identifier == "showBookDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let destinationController = segue.destinationViewController as! DetailedBookVC
-                destinationController.titleText = self.books[indexPath.row].title
-                destinationController.authorText = self.books[indexPath.row].author
-                destinationController.publisherText = self.books[indexPath.row].publisher
-                destinationController.categoriesText = self.books[indexPath.row].categories
+                destinationController.book = books[indexPath.row]
+//                destinationController.titleText = self.books[indexPath.row].title
+//                destinationController.authorText = self.books[indexPath.row].author
+//                destinationController.publisherText = self.books[indexPath.row].publisher
+//                destinationController.categoriesText = self.books[indexPath.row].categories
+//                destinationController.checkoutByText = self.books[indexPath.row].lastCheckedOutBy
+                
+//                for book in books {
+//                    
+//                }
+                
+//                var book = Book(author: nil, categories: nil, id: nil, lastCheckedOut: nil, lastCheckedOutBy: destinationController.checkoutText, publisher: nil, title: nil, url: nil)
+//                destinationController.book = book
                 
                 print("Last checkout by = \(self.books[indexPath.row].lastCheckedOutBy)")
             }
@@ -142,31 +154,10 @@ class TableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        
 
 }

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '38ECA7507398F52EB2058F65'
-               BlueprintName = 'Alamofire'
+               BlueprintIdentifier = '99836C33C65078CFA29D3C04'
+               BlueprintName = 'SAMGradientView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Alamofire.framework'>
+               BuildableName = 'SAMGradientView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

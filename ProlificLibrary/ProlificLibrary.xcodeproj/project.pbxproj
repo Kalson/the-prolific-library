@@ -94,16 +94,30 @@
 				2600F7DA1BFC60AC00357448 /* Books.swift */,
 			);
 			name = Model;
-			path = ProlificLibrary;
+			sourceTree = "<group>";
+		};
+		2629945F1BFF83AF00FB15A2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				264F9E9B1BF9857500D7423A /* AppDelegate.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		262994601BFF83BC00FB15A2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				264F9EC91BF989E100D7423A /* TableViewController.swift */,
+				264F9ECD1BF98E5700D7423A /* AddBooksVC.swift */,
+				264F9ECF1BF98E8100D7423A /* DetailedBookVC.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		264F9E8F1BF9857500D7423A = {
 			isa = PBXGroup;
 			children = (
 				264F9E9A1BF9857500D7423A /* ProlificLibrary */,
-				2600F7DE1BFC726000357448 /* Model */,
-				264F9ECC1BF98A1B00D7423A /* View */,
-				264F9ECB1BF989F800D7423A /* Support Files */,
 				264F9EAF1BF9857500D7423A /* ProlificLibraryTests */,
 				264F9EBA1BF9857600D7423A /* ProlificLibraryUITests */,
 				264F9E991BF9857500D7423A /* Products */,
@@ -125,9 +139,11 @@
 		264F9E9A1BF9857500D7423A /* ProlificLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				264F9EC91BF989E100D7423A /* TableViewController.swift */,
-				264F9ECD1BF98E5700D7423A /* AddBooksVC.swift */,
-				264F9ECF1BF98E8100D7423A /* DetailedBookVC.swift */,
+				2629945F1BFF83AF00FB15A2 /* Application */,
+				262994601BFF83BC00FB15A2 /* ViewControllers */,
+				2600F7DE1BFC726000357448 /* Model */,
+				264F9ECC1BF98A1B00D7423A /* View */,
+				264F9ECB1BF989F800D7423A /* Support Files */,
 			);
 			path = ProlificLibrary;
 			sourceTree = "<group>";
@@ -153,13 +169,11 @@
 		264F9ECB1BF989F800D7423A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				264F9E9B1BF9857500D7423A /* AppDelegate.swift */,
 				264F9EA21BF9857500D7423A /* Assets.xcassets */,
 				264F9EA41BF9857500D7423A /* LaunchScreen.storyboard */,
 				264F9EA71BF9857500D7423A /* Info.plist */,
 			);
 			name = "Support Files";
-			path = ProlificLibrary;
 			sourceTree = "<group>";
 		};
 		264F9ECC1BF98A1B00D7423A /* View */ = {
@@ -168,7 +182,6 @@
 				264F9E9F1BF9857500D7423A /* Main.storyboard */,
 			);
 			name = View;
-			path = ProlificLibrary;
 			sourceTree = "<group>";
 		};
 		575709322A21184AD14A3334 /* Frameworks */ = {
@@ -259,6 +272,7 @@
 				TargetAttributes = {
 					264F9E971BF9857500D7423A = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = CT9B77H7BM;
 					};
 					264F9EAB1BF9857500D7423A = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -518,10 +532,13 @@
 			baseConfigurationReference = FFD793E34CAD2009C5D2C3F2 /* Pods-ProlificLibrary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ProlificLibrary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KaL.ProlificLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -530,10 +547,13 @@
 			baseConfigurationReference = AB2582AB9FBF5CDB35AE8307 /* Pods-ProlificLibrary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ProlificLibrary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KaL.ProlificLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

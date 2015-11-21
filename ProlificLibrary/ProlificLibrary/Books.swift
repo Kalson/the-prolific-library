@@ -13,10 +13,10 @@ import SwiftyJSON
 
 class Books {
     private static let endpoint = "http://prolific-interview.herokuapp.com/5646360614807f000978562a/books/"
-    private static let dateFormatter: NSDateFormatter = NSDateFormatter()
+    private static let dateFormatter = NSDateFormatter()
     
     static func createDateFromString(dateString: String?) -> NSDate? {
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss:SSS"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssxxx"
         
         if let dateString = dateString {
              return dateFormatter.dateFromString(dateString) as NSDate?
@@ -61,7 +61,7 @@ class Books {
 //    title="Running Lean"
 //    publisher="O'REILLY"
     
-    static func post(book: Book) {
+    static func post(book: Book, completionHandler: (Response<AnyObject, NSError>) -> Void) {
         let parameters = [
             "author": book.author!,
             "categories": book.categories!,
@@ -70,6 +70,27 @@ class Books {
         ]
         
         Alamofire.request(.POST, endpoint, parameters: parameters, encoding: .JSON)
+            .responseJSON(completionHandler: completionHandler)
+    }
+    
+    static func update(book: Book) {
+        
+        let parameters = [
+            "lastCheckedOutBy": book.lastCheckedOutBy!
+        ]
+        
+        print("parameters = \(parameters)")
+        
+        Alamofire.request(.PUT, "\(endpoint)\(book.id!)", parameters: parameters).responseJSON { response in
+            if let error = response.result.error {
+                // got an error while deleting, need to handle it
+                print("error trying to update on /post/\(book.id!)")
+                print(error)
+            }
+        }
+        
+        print("checkout info being updated = \(endpoint)\(book.id!)")
+
     }
     
     static func delete(book: Book) {
@@ -85,16 +106,16 @@ class Books {
         print("book being deleted = \(endpoint)\(book.id!)")
     }
     
-    static func deleteAll(books: [Book]) {
+    static func deleteAll(books: [Book], callback: (Response<AnyObject, NSError>) -> Void) {
         
-        Alamofire.request(.DELETE, "http://prolific-interview.herokuapp.com/5646360614807f000978562a/clean").responseJSON { response in
-            if let error = response.result.error {
-                // got an error while deleting, need to handle it
-                print("error trying to DELETE on all /posts/\(books)")
-                print(error)
-            }
+        Alamofire.request(.DELETE, "http://prolific-interview.herokuapp.com/5646360614807f000978562a/clean").responseJSON(completionHandler: callback)
             
-        }
+//            if let error = response.result.error {
+//                // got an error while deleting, need to handle it
+//                print("error trying to DELETE on all /posts/\(books)")
+//                print(error)
+//            }
+        
         print("books being deleted = \(endpoint)")
     }
 }

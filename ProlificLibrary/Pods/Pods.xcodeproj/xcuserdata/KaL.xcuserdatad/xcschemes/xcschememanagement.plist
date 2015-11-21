@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SAMGradientView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +32,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>53EFBAD9A0A070353034BC23874DBE23</key>
+		<key>AB3EFF5228575DDD4F4B451404CE9DD7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A67FED434DADE64CA7C91DFA6EEACF9</key>
+		<key>CDF31E562844B149DE76FA56E3179705</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FBA0764861DB3DDBE0A6F6202ACEF44D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

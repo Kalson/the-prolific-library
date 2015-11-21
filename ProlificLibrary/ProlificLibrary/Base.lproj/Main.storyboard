@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Add Book-->
@@ -17,43 +18,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Do8-hq-jq1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Do8-hq-jq1">
                                 <rect key="frame" x="20" y="105" width="280" height="30"/>
                                 <animations/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Author" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YB6-J7-QFy">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YB6-J7-QFy">
                                 <rect key="frame" x="20" y="154" width="280" height="30"/>
                                 <animations/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Categories" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="djh-tb-w4h">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="djh-tb-w4h">
                                 <rect key="frame" x="20" y="253" width="280" height="30"/>
                                 <animations/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFu-Cn-Ac1">
-                                <rect key="frame" x="20" y="392" width="280" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="submitButtonAction:" destination="cco-Og-wyw" eventType="touchUpInside" id="UyU-JI-Jul"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Publisher" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVi-Nr-7aH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVi-Nr-7aH">
                                 <rect key="frame" x="20" y="202" width="280" height="30"/>
                                 <animations/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Between these pages, you'll travel to a new world" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSh-CV-H7A">
+                                <rect key="frame" x="20" y="386" width="280" height="51"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Book" id="tmB-Fh-Utm">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="PWY-Hh-wEa">
+                            <connections>
+                                <action selector="cancelButtonAction:" destination="cco-Og-wyw" id="aHe-Im-fsN"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="h7O-78-jsZ">
                             <connections>
                                 <action selector="doneButtonAction:" destination="cco-Og-wyw" id="k5a-ON-hix"/>
@@ -62,11 +71,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="authorTextField" destination="YB6-J7-QFy" id="wP8-qS-p1s"/>
+                        <outlet property="bookLabel" destination="NSh-CV-H7A" id="Ljl-mN-WhV"/>
                         <outlet property="bookTitleTextField" destination="Do8-hq-jq1" id="MAn-sc-tZj"/>
+                        <outlet property="cancelButton" destination="PWY-Hh-wEa" id="6uX-UB-Gpt"/>
                         <outlet property="categoriesTextField" destination="djh-tb-w4h" id="Xvg-cA-RKs"/>
                         <outlet property="doneButton" destination="h7O-78-jsZ" id="iqG-he-NT9"/>
                         <outlet property="publisherTextField" destination="AVi-Nr-7aH" id="pej-Al-yLM"/>
-                        <outlet property="submitButton" destination="SFu-Cn-Ac1" id="Gnh-pF-1mS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="seQ-6N-kcN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -166,14 +176,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PublisherLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uti-zO-c3A">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Publisher: No publisher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uti-zO-c3A">
                                 <rect key="frame" x="20" y="144" width="280" height="44"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPN-vI-zNy">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPN-vI-zNy">
                                 <rect key="frame" x="20" y="269" width="280" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Checkout"/>
@@ -188,32 +198,56 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CheckoutLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yQ-52-ni4">
-                                <rect key="frame" x="20" y="196" width="280" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Check out this magical book for endless possibilities" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHU-Qt-TO7">
+                                <rect key="frame" x="20" y="386" width="282" height="60"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Checked Out:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ok6-Bd-HtI">
+                                <rect key="frame" x="20" y="202" width="280" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Has not been checked out yet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdX-Wt-rce">
+                                <rect key="frame" x="20" y="225" width="280" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="iPN-vI-zNy" secondAttribute="leading" id="3zq-ig-LiY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iPN-vI-zNy" secondAttribute="trailing" id="ebb-d5-wVW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="sd6-dP-VR8">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="yXm-bS-5A1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="yXm-bS-5A1">
+                            <connections>
+                                <action selector="shareButtonAction:" destination="4k5-BT-mBI" id="yZR-sb-cJ9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="authorLabel" destination="FEZ-hT-ZpP" id="yv3-Ti-c1p"/>
                         <outlet property="categoriesLabel" destination="LZn-af-xRb" id="5lJ-JB-Vun"/>
+                        <outlet property="checkoutBookLabel" destination="rHU-Qt-TO7" id="EGc-Im-Fqc"/>
                         <outlet property="checkoutButton" destination="iPN-vI-zNy" id="Sps-gH-syB"/>
-                        <outlet property="checkoutLabel" destination="1yQ-52-ni4" id="o6v-IY-AaV"/>
+                        <outlet property="lastCheckOutLabel" destination="Ok6-Bd-HtI" id="bk0-TF-rHO"/>
+                        <outlet property="lastCheckoutByLabel" destination="zdX-Wt-rce" id="kCY-1M-uXU"/>
                         <outlet property="publisherLabel" destination="Uti-zO-c3A" id="2Bl-nS-pmJ"/>
                         <outlet property="titleLabel" destination="k7i-d4-Msv" id="7kt-kK-yae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AwS-8g-502" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="954" y="184"/>
+            <point key="canvasLocation" x="918" y="169"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ktb-sQ-xU2">
