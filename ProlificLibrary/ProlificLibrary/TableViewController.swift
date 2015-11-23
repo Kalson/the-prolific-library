@@ -45,6 +45,7 @@ class TableViewController: UITableViewController {
     
         self.tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        self.tableView.rowHeight = 60
 
         // create refresh
         let attributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -53,9 +54,6 @@ class TableViewController: UITableViewController {
         self.refreshData.tintColor = UIColor(white: 1.0, alpha: 0.5)
         self.refreshData.addTarget(self, action: Selector("refresh"), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(self.refreshData)
-        
-        
-        
         
     }
     
@@ -66,13 +64,6 @@ class TableViewController: UITableViewController {
             
             print("Books items:\(books) at a total of \(books.count)")
             
-//            for book in books {
-//                print("?????")
-//                print(book.author!)
-//                print(book.lastCheckedOutBy!)
-//                print(book.lastCheckedOut!)
-//                
-//            }
         }
         
         if self.refreshData.refreshing {
@@ -113,6 +104,8 @@ class TableViewController: UITableViewController {
         cell.layoutMargins = UIEdgeInsetsZero
         cell.preservesSuperviewLayoutMargins = false
 
+        cell.textLabel?.font = UIFont(name: cell.textLabel!.font!.fontName, size: 18)
+        
         // Configure the cell...
         if let title = books[indexPath.row].title {
             cell.textLabel?.text = title
@@ -136,18 +129,6 @@ class TableViewController: UITableViewController {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let destinationController = segue.destinationViewController as! DetailedBookVC
                 destinationController.book = books[indexPath.row]
-//                destinationController.titleText = self.books[indexPath.row].title
-//                destinationController.authorText = self.books[indexPath.row].author
-//                destinationController.publisherText = self.books[indexPath.row].publisher
-//                destinationController.categoriesText = self.books[indexPath.row].categories
-//                destinationController.checkoutByText = self.books[indexPath.row].lastCheckedOutBy
-                
-//                for book in books {
-//                    
-//                }
-                
-//                var book = Book(author: nil, categories: nil, id: nil, lastCheckedOut: nil, lastCheckedOutBy: destinationController.checkoutText, publisher: nil, title: nil, url: nil)
-//                destinationController.book = book
                 
                 print("Last checkout by = \(self.books[indexPath.row].lastCheckedOutBy)")
                 print("Last checkout date = \(self.books[indexPath.row].lastCheckedOut)")

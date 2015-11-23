@@ -15,15 +15,15 @@ class Books {
     private static let endpoint = "http://prolific-interview.herokuapp.com/5646360614807f000978562a/books/"
     private static let dateFormatter = NSDateFormatter()
     
-    static func createDateFromString(dateString: String?) -> NSDate? {
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssxxx"
-        
-        if let dateString = dateString {
-             return dateFormatter.dateFromString(dateString) as NSDate?
-        }
-        
-        return nil
-    }
+//    static func createDateFromString(dateString: String?) -> NSDate? {
+//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssxxx"
+//        
+//        if let dateString = dateString {
+//             return dateFormatter.dateFromString(dateString) as NSDate?
+//        }
+    
+//        return nil
+//    }
     
     // Example response from the server:
     //{
@@ -46,7 +46,7 @@ class Books {
                 var books = [Book]()
                 
                 for (_, value) in json {
-                    books.append(Book(author: value["author"].string, categories: value["categories"].string, id: value["id"].int!, lastCheckedOut: self.createDateFromString(value["lastCheckedOut"].string), lastCheckedOutBy: value["lastCheckedOutBy"].string, publisher: value["publisher"].string, title: value["title"].string, url: value["url"].string))
+                    books.append(Book(author: value["author"].string, categories: value["categories"].string, id: value["id"].int!, lastCheckedOut: value["lastCheckedOut"].string, lastCheckedOutBy: value["lastCheckedOutBy"].string, publisher: value["publisher"].string, title: value["title"].string, url: value["url"].string))
                 }
                 
                 callback(books)

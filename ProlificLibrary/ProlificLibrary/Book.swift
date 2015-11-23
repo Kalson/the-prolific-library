@@ -12,7 +12,7 @@ class Book {
     var author: String?
     var categories: String?
     var id: Int?
-    var lastCheckedOut: NSDate?
+    var lastCheckedOut: String?
     var lastCheckedOutBy: String?
     var publisher: String?
     var title: String?
@@ -26,7 +26,7 @@ class Book {
     //    let hour = comp.hour
     //    let minute = comp.minute
     
-    init(author: String?, categories: String?, id: Int?, lastCheckedOut: NSDate?, lastCheckedOutBy: String?, publisher: String?, title: String?, url: String?) {
+    init(author: String?, categories: String?, id: Int?, lastCheckedOut: String?, lastCheckedOutBy: String?, publisher: String?, title: String?, url: String?) {
         self.author = author
         self.categories = categories
         self.id = id

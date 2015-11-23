@@ -210,7 +210,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Check out this magical book for endless possibilities" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHU-Qt-TO7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Check out this magical book for endless possibilities" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHU-Qt-TO7">
                                 <rect key="frame" x="20" y="386" width="282" height="60"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -236,6 +236,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="iPN-vI-zNy" secondAttribute="leading" id="3zq-ig-LiY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rHU-Qt-TO7" secondAttribute="trailing" constant="-2" id="QQu-b1-SKG"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="rHU-Qt-TO7" secondAttribute="leading" id="dmk-X2-nqh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iPN-vI-zNy" secondAttribute="trailing" id="ebb-d5-wVW"/>
                         </constraints>
                     </view>

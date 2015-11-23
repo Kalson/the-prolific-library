@@ -12,7 +12,7 @@ import SAMGradientView
 class DetailedBookVC: UIViewController {
     
     var book: Book!
-    let dateFormatter = NSDateFormatter()
+    var dateStamp:String!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
@@ -44,7 +44,7 @@ class DetailedBookVC: UIViewController {
     }
     
     @IBAction func shareButtonAction(sender: AnyObject) {
-        let shareString = "Check out this book I just got '\(titleLabel.text!)' using the Prolific Library App"
+        let shareString = "Check out this book '\(titleLabel.text!)' I just got using the Prolific Library App"
         let itemsToShare = [shareString]
         let activityVC = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
         self.presentViewController(activityVC, animated: true, completion: nil)
@@ -53,9 +53,8 @@ class DetailedBookVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dateFormatter.dateStyle = .LongStyle
-        dateFormatter.timeStyle = .ShortStyle
-        
+        dateStamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .ShortStyle, timeStyle: .ShortStyle)
+
         setupStyles()
         
         titleLabel.text = book.title
@@ -67,20 +66,10 @@ class DetailedBookVC: UIViewController {
         }
         
         if let lastCheckedOutBy = book.lastCheckedOutBy {
-            // Format: June 3, 2013 1:45pm
-            lastCheckoutByLabel.text = "\(lastCheckedOutBy) @ \(dateFormatter.stringFromDate(book.lastCheckedOut!))"
+            lastCheckoutByLabel.text = "\(lastCheckedOutBy) @ \(book.lastCheckedOut!)"
             
         }
-//        if let lastCheckout = book.lastCheckedOutBy {
-//            lastCheckoutByLabel.text = lastCheckout
-//        } 
-        
-//        if let dateCheckout = dateFormatter.stringFromDate(book.lastCheckedOut!) {
-//          lastCheckoutByLabel.text = dateCheckout
-//        }
-        
-        
-        
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,11 +79,10 @@ class DetailedBookVC: UIViewController {
     
     func saveCheckOutName(name: String) {
         book.lastCheckedOutBy = name
-        book.lastCheckedOut = NSDate()
+        book.lastCheckedOut = dateStamp
         Books.update(book)
         
-        print("sgshshjrh")
-        print("+++++ \(lastCheckoutByLabel.text)")
+//        self.pop
     }
     
     func setupStyles() {
