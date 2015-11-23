@@ -76,7 +76,8 @@ class Books {
     static func update(book: Book) {
         
         let parameters = [
-            "lastCheckedOutBy": book.lastCheckedOutBy!
+            "lastCheckedOutBy": book.lastCheckedOutBy!,
+            "lastCheckedOut" : book.lastCheckedOut!
         ]
         
         print("parameters = \(parameters)")

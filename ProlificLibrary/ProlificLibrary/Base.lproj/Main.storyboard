@@ -18,35 +18,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Do8-hq-jq1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Do8-hq-jq1">
                                 <rect key="frame" x="20" y="105" width="280" height="30"/>
                                 <animations/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YB6-J7-QFy">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YB6-J7-QFy">
                                 <rect key="frame" x="20" y="154" width="280" height="30"/>
                                 <animations/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="djh-tb-w4h">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="djh-tb-w4h">
                                 <rect key="frame" x="20" y="253" width="280" height="30"/>
                                 <animations/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVi-Nr-7aH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AVi-Nr-7aH">
                                 <rect key="frame" x="20" y="202" width="280" height="30"/>
                                 <animations/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Between these pages, you'll travel to a new world" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSh-CV-H7A">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Between these pages, you'll travel to a new world" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSh-CV-H7A">
                                 <rect key="frame" x="20" y="386" width="280" height="51"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -56,6 +56,18 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="NSh-CV-H7A" secondAttribute="trailing" id="6JM-cg-B20"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="AVi-Nr-7aH" secondAttribute="leading" id="GpR-Wf-eEh"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="djh-tb-w4h" secondAttribute="leading" id="QOt-AC-hb5"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Do8-hq-jq1" secondAttribute="leading" id="Zjk-Fx-EkM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Do8-hq-jq1" secondAttribute="trailing" id="dtV-0v-EqQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YB6-J7-QFy" secondAttribute="trailing" id="hy4-j7-aag"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="NSh-CV-H7A" secondAttribute="leading" id="nTt-Ad-i9G"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="YB6-J7-QFy" secondAttribute="leading" id="oT3-hy-7MR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AVi-Nr-7aH" secondAttribute="trailing" id="y3h-eQ-b2E"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="djh-tb-w4h" secondAttribute="trailing" id="zu6-JB-xt1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Book" id="tmB-Fh-Utm">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="PWY-Hh-wEa">

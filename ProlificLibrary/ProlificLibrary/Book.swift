@@ -12,10 +12,7 @@ class Book {
     var author: String?
     var categories: String?
     var id: Int?
-//    var lastCheckedOut: NSDate?
-//    var dateFormatter = NSDateFormatter()
     var lastCheckedOut: NSDate?
-
     var lastCheckedOutBy: String?
     var publisher: String?
     var title: String?

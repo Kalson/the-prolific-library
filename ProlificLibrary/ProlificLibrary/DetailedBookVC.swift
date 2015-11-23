@@ -26,14 +26,14 @@ class DetailedBookVC: UIViewController {
     @IBAction func checkoutButtonAction(sender: AnyObject) {
         
         let alertController = UIAlertController(title: "Check Out", message: "Do you want to check out \(book.title!)", preferredStyle: .Alert)
-        let yesAction = UIAlertAction(title: "Yes", style: .Default) { (action: UIAlertAction) -> Void in
+        let checkoutAction = UIAlertAction(title: "Check out", style: .Default) { (action: UIAlertAction) -> Void in
             let textField = alertController.textFields!.first
             self.saveCheckOutName(textField!.text!)
         }
         
-        let noAction = UIAlertAction(title: "No", style: .Destructive, handler: nil)
-        alertController.addAction(yesAction)
-        alertController.addAction(noAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Destructive, handler: nil)
+        alertController.addAction(checkoutAction)
+        alertController.addAction(cancelAction)
         
         alertController.addTextFieldWithConfigurationHandler({ (textfield: UITextField) -> Void in
             
@@ -71,6 +71,15 @@ class DetailedBookVC: UIViewController {
             lastCheckoutByLabel.text = "\(lastCheckedOutBy) @ \(dateFormatter.stringFromDate(book.lastCheckedOut!))"
             
         }
+//        if let lastCheckout = book.lastCheckedOutBy {
+//            lastCheckoutByLabel.text = lastCheckout
+//        } 
+        
+//        if let dateCheckout = dateFormatter.stringFromDate(book.lastCheckedOut!) {
+//          lastCheckoutByLabel.text = dateCheckout
+//        }
+        
+        
         
     }
     
@@ -80,9 +89,12 @@ class DetailedBookVC: UIViewController {
     }
     
     func saveCheckOutName(name: String) {
-        book.lastCheckedOutBy = lastCheckoutByLabel.text
+        book.lastCheckedOutBy = name
         book.lastCheckedOut = NSDate()
         Books.update(book)
+        
+        print("sgshshjrh")
+        print("+++++ \(lastCheckoutByLabel.text)")
     }
     
     func setupStyles() {

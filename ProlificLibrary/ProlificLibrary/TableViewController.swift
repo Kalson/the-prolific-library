@@ -43,12 +43,18 @@ class TableViewController: UITableViewController {
         gradientView.gradientColors = [UIColor(red: 0.1608, green: 0.6235, blue: 0.7804, alpha: 1.0), UIColor(red: 0.1059, green: 0.7804, blue: 0.6, alpha: 1.0)]
         self.tableView.backgroundView = gradientView
     
-        self.tableView.separatorColor = UIColor.clearColor()
+        self.tableView.separatorColor = UIColor(white: 1.0, alpha: 0.3)
+        self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
 
         // create refresh
-        self.refreshData.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        let attributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        let attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: attributes)
+        self.refreshData.attributedTitle = attributedTitle
+        self.refreshData.tintColor = UIColor(white: 1.0, alpha: 0.5)
         self.refreshData.addTarget(self, action: Selector("refresh"), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(self.refreshData)
+        
+        
         
         
     }
@@ -59,6 +65,14 @@ class TableViewController: UITableViewController {
             self.tableView.reloadData()
             
             print("Books items:\(books) at a total of \(books.count)")
+            
+//            for book in books {
+//                print("?????")
+//                print(book.author!)
+//                print(book.lastCheckedOutBy!)
+//                print(book.lastCheckedOut!)
+//                
+//            }
         }
         
         if self.refreshData.refreshing {
@@ -96,6 +110,8 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         cell.textLabel?.textColor = UIColor.whiteColor()
         cell.detailTextLabel?.textColor = UIColor.whiteColor()
+        cell.layoutMargins = UIEdgeInsetsZero
+        cell.preservesSuperviewLayoutMargins = false
 
         // Configure the cell...
         if let title = books[indexPath.row].title {
@@ -134,6 +150,7 @@ class TableViewController: UITableViewController {
 //                destinationController.book = book
                 
                 print("Last checkout by = \(self.books[indexPath.row].lastCheckedOutBy)")
+                print("Last checkout date = \(self.books[indexPath.row].lastCheckedOut)")
             }
             
         }
