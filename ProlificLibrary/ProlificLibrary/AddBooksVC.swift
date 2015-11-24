@@ -44,19 +44,19 @@ class AddBooksVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // create gradient view
-        let gradientView = SAMGradientView(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
-        gradientView.gradientColors = [UIColor(red: 0.1608, green: 0.6235, blue: 0.7804, alpha: 1.0), UIColor(red: 0.1059, green: 0.7804, blue: 0.6, alpha: 1.0)]
-        self.view.addSubview(gradientView)
-        
+        setupStyles()
+   
         self.bookLabel.textColor = UIColor(white: 1.0, alpha: 0.65)
         
-        // add textfields & booklabel to gradient view
-        gradientView.addSubview(bookTitleTextField)
-        gradientView.addSubview(authorTextField)
-        gradientView.addSubview(publisherTextField)
-        gradientView.addSubview(categoriesTextField)
-        gradientView.addSubview(bookLabel)
+        // Do any additional setup after loading the view.
+    }
+    
+    func setupStyles() {
+        
+        // create gradient View
+        let gradientView = SAMGradientView(frame: CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height))
+        gradientView.gradientColors = [UIColor(red: 0.1608, green: 0.6235, blue: 0.7804, alpha: 1.0), UIColor(red: 0.1059, green: 0.7804, blue: 0.6, alpha: 1.0)]
+        self.view.insertSubview(gradientView, atIndex: 0)
         
         // set textfields
         self.bookTitleTextField.backgroundColor = UIColor.clearColor()
@@ -85,7 +85,6 @@ class AddBooksVC: UIViewController {
         self.publisherTextField.delegate = self
         self.categoriesTextField.delegate = self
         
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

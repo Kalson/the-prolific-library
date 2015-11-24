@@ -23,11 +23,16 @@ class DetailedBookVC: UIViewController {
     @IBOutlet weak var checkoutBookLabel: UILabel!
     @IBOutlet weak var lastCheckoutByLabel: UILabel!
     
+    var alertController: UIAlertController!
+    
     @IBAction func checkoutButtonAction(sender: AnyObject) {
         
-        let alertController = UIAlertController(title: "Check Out", message: "Do you want to check out \(book.title!)", preferredStyle: .Alert)
+        
+        alertController = UIAlertController(title: "Check Out", message: "Who's checking out '\(book.title!)'?", preferredStyle: .Alert)
+        alertController.view.tintColor = UIColor.redColor()
         let checkoutAction = UIAlertAction(title: "Check out", style: .Default) { (action: UIAlertAction) -> Void in
-            let textField = alertController.textFields!.first
+            let textField = self.alertController.textFields!.first
+            textField?.placeholder = "Name"
             self.saveCheckOutName(textField!.text!)
         }
         
@@ -39,7 +44,9 @@ class DetailedBookVC: UIViewController {
             
         })
         
+        self.view.backgroundColor = UIColor.redColor()  
         self.presentViewController(alertController, animated: true, completion: nil)
+
 
     }
     
@@ -82,7 +89,7 @@ class DetailedBookVC: UIViewController {
         book.lastCheckedOut = dateStamp
         Books.update(book)
         
-//        self.pop
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func setupStyles() {
