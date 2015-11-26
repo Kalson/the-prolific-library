@@ -29,7 +29,6 @@ class DetailedBookVC: UIViewController {
         
         
         alertController = UIAlertController(title: "Check Out", message: "Who's checking out '\(book.title!)'?", preferredStyle: .Alert)
-        alertController.view.tintColor = UIColor.redColor()
         let checkoutAction = UIAlertAction(title: "Check out", style: .Default) { (action: UIAlertAction) -> Void in
             let textField = self.alertController.textFields!.first
             textField?.placeholder = "Name"
@@ -44,7 +43,6 @@ class DetailedBookVC: UIViewController {
             
         })
         
-        self.view.backgroundColor = UIColor.redColor()  
         self.presentViewController(alertController, animated: true, completion: nil)
 
 
@@ -59,6 +57,9 @@ class DetailedBookVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = book.title
+        self.navigationController?.navigationBar.topItem?.title = "" // empty the back back button
         
         dateStamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .ShortStyle, timeStyle: .ShortStyle)
 
@@ -75,6 +76,10 @@ class DetailedBookVC: UIViewController {
         if let lastCheckedOutBy = book.lastCheckedOutBy {
             lastCheckoutByLabel.text = "\(lastCheckedOutBy) @ \(book.lastCheckedOut!)"
             
+        }
+        
+        UIView.animateWithDuration(1) { () -> Void in
+            self.checkoutBookLabel.center = CGPointMake(self.checkoutBookLabel.center.x, self.checkoutBookLabel.center.y - 50)
         }
 
     }

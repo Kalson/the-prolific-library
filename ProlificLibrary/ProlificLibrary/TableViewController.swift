@@ -54,7 +54,7 @@ class TableViewController: UITableViewController {
         self.refreshData.tintColor = UIColor(white: 1.0, alpha: 0.5)
         self.refreshData.addTarget(self, action: Selector("refresh"), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(self.refreshData)
-        
+    
     }
     
     func refresh(){
@@ -72,8 +72,6 @@ class TableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-        print("VIEWWILLAPPEAR")
         refresh()
     }
     

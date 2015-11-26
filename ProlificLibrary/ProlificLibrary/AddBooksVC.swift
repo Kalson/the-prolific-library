@@ -27,7 +27,7 @@ class AddBooksVC: UIViewController {
     
     @IBAction func doneButtonAction(sender: AnyObject) {
         if self.bookTitleTextField.text == "" || self.authorTextField.text == "" || self.publisherTextField.text == "" || self.categoriesTextField.text == "" {
-            let alert = UIAlertController(title: "Error", message: "You left a field blank", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Oops!", message: "You left a field blank", preferredStyle: .Alert)
             let okayAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
             alert.addAction(okayAction)
             self.presentViewController(alert, animated: true, completion: nil)
@@ -45,10 +45,10 @@ class AddBooksVC: UIViewController {
         super.viewDidLoad()
         
         setupStyles()
-   
         self.bookLabel.textColor = UIColor(white: 1.0, alpha: 0.65)
         
         // Do any additional setup after loading the view.
+
     }
     
     func setupStyles() {
@@ -99,5 +99,11 @@ extension AddBooksVC: UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        UIView.animateWithDuration(0.6) { () -> Void in
+            self.bookLabel.center = CGPointMake(self.bookLabel.center.x, self.bookLabel.center.y - 100)
+        }
     }
 }
