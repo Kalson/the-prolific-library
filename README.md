@@ -14,3 +14,9 @@ The SWAG committee is looking for a way to track who has which book from our lib
 ![image](Prolific_screen_1.png)
 ![image](Prolific_screen_2.png)
 ![image](Prolific_screen_3.png)
+
+
+## CocoaPods used
+- AlamoFire: for Http networking, such as make request to the server
+- SwiftyJson: to deal with the JSON Data received from the server response
+- SAMGradientView: to easily use gradients for the UI
