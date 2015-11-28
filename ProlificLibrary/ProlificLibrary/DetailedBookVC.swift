@@ -59,7 +59,7 @@ class DetailedBookVC: UIViewController {
         super.viewDidLoad()
         
         self.title = book.title
-        self.navigationController?.navigationBar.topItem?.title = "" // empty the back back button
+//        self.navigationController?.navigationBar.topItem?.title = "" // empty the back back button
         
         dateStamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .ShortStyle, timeStyle: .ShortStyle)
 
