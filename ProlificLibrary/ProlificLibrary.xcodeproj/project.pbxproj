@@ -12,7 +12,6 @@
 		264F9E9C1BF9857500D7423A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264F9E9B1BF9857500D7423A /* AppDelegate.swift */; };
 		264F9EA11BF9857500D7423A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264F9E9F1BF9857500D7423A /* Main.storyboard */; };
 		264F9EA31BF9857500D7423A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264F9EA21BF9857500D7423A /* Assets.xcassets */; };
-		264F9EA61BF9857500D7423A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 264F9EA41BF9857500D7423A /* LaunchScreen.storyboard */; };
 		264F9EB11BF9857500D7423A /* ProlificLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264F9EB01BF9857500D7423A /* ProlificLibraryTests.swift */; };
 		264F9EBC1BF9857600D7423A /* ProlificLibraryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264F9EBB1BF9857600D7423A /* ProlificLibraryUITests.swift */; };
 		264F9ECA1BF989E100D7423A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264F9EC91BF989E100D7423A /* TableViewController.swift */; };
@@ -45,7 +44,6 @@
 		264F9E9B1BF9857500D7423A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		264F9EA01BF9857500D7423A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		264F9EA21BF9857500D7423A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		264F9EA51BF9857500D7423A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		264F9EA71BF9857500D7423A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		264F9EAC1BF9857500D7423A /* ProlificLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProlificLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		264F9EB01BF9857500D7423A /* ProlificLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProlificLibraryTests.swift; sourceTree = "<group>"; };
@@ -170,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				264F9EA21BF9857500D7423A /* Assets.xcassets */,
-				264F9EA41BF9857500D7423A /* LaunchScreen.storyboard */,
 				264F9EA71BF9857500D7423A /* Info.plist */,
 			);
 			name = "Support Files";
@@ -309,7 +306,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				264F9EA61BF9857500D7423A /* LaunchScreen.storyboard in Resources */,
 				264F9EA31BF9857500D7423A /* Assets.xcassets in Resources */,
 				264F9EA11BF9857500D7423A /* Main.storyboard in Resources */,
 			);
@@ -433,14 +429,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		264F9EA41BF9857500D7423A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				264F9EA51BF9857500D7423A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -450,7 +438,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -463,7 +451,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -483,6 +472,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -495,7 +485,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -509,6 +499,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -521,6 +512,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -532,10 +524,15 @@
 			baseConfigurationReference = FFD793E34CAD2009C5D2C3F2 /* Pods-ProlificLibrary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ProlificLibrary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = KaL.ProlificLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -547,10 +544,15 @@
 			baseConfigurationReference = AB2582AB9FBF5CDB35AE8307 /* Pods-ProlificLibrary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ProlificLibrary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = KaL.ProlificLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
